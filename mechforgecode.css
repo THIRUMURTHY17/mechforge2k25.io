@@ -1,0 +1,644 @@
+/*nav bar css styling start*/
+/* Custom Navbar Styling */
+.custom-navbar {
+    background-color: #000000; /* Main navbar background */
+    padding: 0.8rem 1rem; /* Adjust padding as needed */
+    /* Ensure position is relative for absolutely positioned elements inside */
+    position: relative;
+    z-index: 10; /* Ensure navbar is above other content */
+}
+
+.navbar-brand .navbar-logo {
+    height: 40px; /* Adjust logo size */
+    width: auto;
+    margin-right: 10px;
+    border-radius: 5px; /* Slightly rounded corners for the logo placeholder */
+}
+
+.navbar-brand .logo-text {
+    font-family: 'Montserrat', sans-serif; /* A modern font for the logo text */
+    font-weight: 700; /* Bold */
+    font-size: 1.8rem; /* Larger font size for the brand name */
+    color: #74f0ed; /* Cyan color for the text */
+    margin-top: 5px;
+}
+
+.nav-link {
+    color: #ea445a !important; /* Red for nav links */
+    font-weight: 500;
+    margin-right: 15px; /* Spacing between links */
+    transition: color 0.3s ease; /* Smooth transition for color on hover */
+
+    /* --- New/Modified properties for the custom hover effect --- */
+    position: relative; /* Essential for positioning the ::after pseudo-element */
+    overflow: hidden; /* Ensures the curved line is clipped when animating */
+    padding-bottom: 8px; /* Add padding to make space for the underline */
+}
+
+/* Base style for the hover line (hidden by default) */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* Start slightly below the visible area */
+    left: 50%; /* Center the line */
+    width: 120%; /* Make it wider than the text to get the curve effect */
+    height: 15px; /* Height of the curved line */
+    background-color: transparent; /* No background color initially */
+    border: 2px solid white; /* White border for the line */
+    border-radius: 0 0 50% 50%; /* Top corners sharp, bottom corners rounded for the curve */
+    border-top: none; /* Remove the top border to create the open curve */
+    transform: translate(-50%, 0) scale(0); /* Start hidden and scaled down */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth animation */
+    /* Use a cubic-bezier for a more dynamic "snap" effect */
+    opacity: 0; /* Start invisible */
+    z-index: -1; /* Place it behind the text */
+}
+
+/* Hover state for the nav-link */
+.nav-link:hover {
+    color: #74f0ed !important; /* Cyan on text hover */
+}
+
+
+
+/* Hover state for the ::after pseudo-element */
+.nav-link:hover::after {
+    transform: translate(-50%, 0) scale(1); /* Expand and move up to reveal */
+    bottom: 0; /* Position at the bottom of the link */
+    opacity: 1; /* Make visible */
+}
+
+/* Styling for the active link */
+.nav-item.active .nav-link {
+    color: #74f0ed !important; /* Cyan for the active link */
+    border-bottom: 2px solid #74f0ed; /* Underline for active link */
+    padding-bottom: 3px; /* Adjust padding to not conflict with hover effect */
+}
+
+/* If you want the active link to also have the curved bottom: */
+.nav-item.active .nav-link::after {
+    transform: translate(-50%, 0) scale(1);
+    bottom: 0;
+    opacity: 1;
+    transition: none; /* No transition for the active state to appear immediately */
+}
+
+/* Navbar Toggler Button Styling */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1); /* Light border for toggler */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba%28116, 240, 237, 0.8%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    /* Custom icon color for the toggler (cyan) */
+}
+
+/* Responsive Adjustments (for smaller screens) */
+@media (max-width: 991.98px) {
+    .navbar-brand {
+        text-align: center;
+        width: 100%; /* Ensure brand takes full width for centering */
+    }
+
+    .navbar-toggler {
+        position: absolute; /* Position toggler for better alignment */
+        right: 15px;
+        top: 10px;
+    }
+
+    .navbar-collapse {
+        margin-top: 10px; /* Space above collapsed menu */
+    }
+
+    .navbar-nav {
+        text-align: center; /* Center nav items when collapsed */
+        width: 100%;
+    }
+
+    .nav-item {
+        margin: 5px 0; /* Vertical spacing for collapsed items */
+    }
+
+    .nav-item .nav-link { /* Target nav-link inside nav-item */
+        padding-bottom: 3px; /* Reset padding for mobile */
+    }
+
+    .nav-item.active .nav-link {
+        border-bottom: none; /* Remove underline for active in mobile view */
+    }
+
+    /* Hide the custom hover effect on smaller screens for cleaner look */
+    .nav-link::after {
+        display: none;
+    }
+}
+
+
+
+/*nav bar css styling ends*/
+
+
+
+/* section home page css starts */
+
+
+:root {
+    --color-accent: #a78bfa;
+    --color-primary-dark: #250c4c;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+#home-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0a0e22;
+}
+
+#home-section .bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #253480, #47454a);
+    opacity: 0.9;
+    z-index: 0;
+}
+
+#home-section > div {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+#main-title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #74F0ED;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+#main-title .accent-2k25 {
+    color: #a78bfa;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: #e0e0e0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.date-location {
+    font-size: 1.1rem;
+    color: #bdbdbd;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.explore-button {
+    display: inline-block;
+    background-color: #a78bfa;
+    color: #250c4c;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.explore-button:hover {
+    background-color: #8b5cf6;
+    transform: translateY(-2px);
+    text-decoration: none;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+    #main-title {
+        font-size: 6rem;
+    }
+    .tagline {
+        font-size: 2rem;
+    }
+    .date-location {
+        font-size: 1.25rem;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 1s ease-out forwards;
+    opacity: 0;
+}
+
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+
+:root {
+    --color-accent: #a78bfa;
+    --color-primary-dark: #250c4c;
+    --color-dark-blue-bg: #0a0e22;
+    --color-container-bg: #0b0e4e;
+    --color-gray-text: #d1d5db;
+    --color-light-gray-text: #e0e0e0;
+}
+
+/* section home page css ends  */
+
+
+/* Event Section Styling */
+.event-page-section-container {
+    font-family: 'Inter', sans-serif;
+    background-color: #151226;
+    color: #E0E0E0;
+    padding: 3rem 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Base styles for the container box (individual event cards) */
+.container-box {
+    background-color: #2D2359;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the entire card */
+.container-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Initial content visible by default */
+.initial-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 10;
+}
+
+/* Initial state of the icon circle */
+.event-icon-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #4A3B7C;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #E0E0E0;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+/* Style for Font Awesome icons within the circle */
+.event-icon-circle .fas {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Hover content (image background + details overlay) */
+.hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Overlay for text readability on top of the image */
+.details-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover effects on the container-box */
+.container-box:hover .initial-content {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.container-box:hover .hover-content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* For the list inside CADD WARZ, ensure it's left-aligned within its own context */
+.initial-content ul, .details-overlay ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    text-align: left;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* Keyframe animations for slide-in effect */
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+/* Delay classes for staggered animation */
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-900 { animation-delay: 0.9s; }
+
+/* Responsive Adjustments for Mobile View (Event Cards) */
+@media (max-width: 767px) {
+    .container-box {
+        width: 100%;
+        height: 250px;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .initial-content {
+        padding: 1rem;
+    }
+
+    .event-icon-circle {
+        width: 80px;
+        height: 80px;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .event-icon-circle .fas {
+        font-size: 2rem;
+    }
+
+    .initial-content h4, .details-overlay h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .initial-content p, .details-overlay p, .initial-content ul, .details-overlay ul {
+        font-size: 0.9rem;
+    }
+
+    .initial-content ul, .details-overlay ul {
+        padding-left: 1rem;
+    }
+}
+
+
+.event-section {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://images.unsplash.com/photo-1583912268180-cc26399c8c08?auto=format&fit=crop&w=1920&q=80')
+    no-repeat center center fixed;
+  background-color: #007bff; /* fallback color */
+  background-size: cover;
+  text-transform: capitalize;
+  color: #212529;
+  padding: 60px 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.card-custom {
+  background-color: #ffc107;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.card-custom:hover {
+  transform: translateY(-5px);
+}
+
+.icon-style {
+  font-size: 2rem;
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.equal-height {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+/*scroll*/
+.team-section {
+  padding: 3rem 1rem;
+ 
+}
+
+.team-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.slider-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  width: max-content;
+  animation: slide-left 25s linear infinite;
+}
+
+.slider-wrapper:hover .slider-track {
+  animation-play-state: paused;
+}
+
+.team-card {
+  background-color: #2D2359;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  width: 220px;
+  margin: 0 1rem;
+  flex-shrink: 0;
+}
+
+.team-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.team-card .info {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+}
+
+.team-card:hover .info {
+  opacity: 1;
+}
+
+@keyframes slide-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.slider-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.slider-wrapper::-webkit-scrollbar-thumb {
+  background-color: #4A3B7C;
+  border-radius: 4px;
+}
+
+@media (max-width: 576px) {
+  .team-card {
+    width: 180px;
+    margin: 0 0.5rem;
+  }
+}
+.registration-section {
+
+  color: #d6bcfa;
+  padding: 3rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.registration-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2.5rem;
+}
+
+.registration-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.registration-card {
+  background-color: #1a144b;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 450px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.registration-card h3 {
+  color: #c084fc;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.registration-card ul {
+  padding-left: 1.2rem;
+}
+
+.registration-card li {
+  margin-bottom: 0.75rem;
+  line-height: 1.5rem;
+  color: #e0d4f7;
+}
+
+.register-button {
+  margin-top: 1.5rem;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #b794f4;
+  color: #1a144b;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #d6bcfa;
+  color: #120f3f;
+}
